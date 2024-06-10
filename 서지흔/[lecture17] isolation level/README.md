@@ -10,4 +10,4 @@
 - isolation level
   ![isolationlevel](../img/lec17-isolationlevel.png)
 - snapshot isolation
-- 사용하는 RDBMS의 isolation level 잘 파악해서 적절한 isolation level 사용할 수 있어야한다
+- 사용하는 RDBMS의 isolation level 잘 파악해서 적절한 isolation level 사용할 수 있어야한다.
