@@ -7,8 +7,8 @@
 
 ## Schedule
 
-- 여러 트랜잭션들이 동시에 실행될 때 각 트랜잭션에 속한 operation들의 실행 순서<br><br>
-<img src="./img/lecture15-1.png">
+- 여러 트랜잭션들이 동시에 실행될 때 각 트랜잭션에 속한 operation들의 실행 순서<br>
+<img src="./img/lecture15-1.png" style="width:350px;height:350px">
 
     
     - operation : r1(K), w1(K) 등.. 하나의 단위
