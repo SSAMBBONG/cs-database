@@ -3,7 +3,7 @@
 - 각 transaction 내의 operation들의 순서는 바뀌지 않는다
 
 다음과 같은 transaction 2개가 있다고 생각해보자.  
-![../img/tx1.png]]![[../img/tx2.png](../img/tx1.png]]![[../img/tx2.png)
+![../img/tx1.png](../img/tx1.png)![../img/tx2.png](../img/tx2.png)
 
 두 transaction 들로 나올 수 있는 경우 중 아래와 같은 4개의 경우를 살펴보자  
 ![../img/schedule.png](../img/schedule.png)
