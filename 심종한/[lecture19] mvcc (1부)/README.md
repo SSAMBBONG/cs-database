@@ -82,3 +82,5 @@ PostgreSQL 는 `repeatable read` 레벨을 사용하면 같은 데이터에 먼�
 **즉 서로 연관되는 트랜잭션의 isoloation 레벨을 동시에 고려해야 문제를 해결할 수 있다는 것이다.**
 
 ![alt text](<repeatable read로 바꿔도 문제.png>)
+
+`tx1` 의 isolation 레벨을 바꾸더라도 `tx1` 은 롤백되는 상황이 발생할 수 있고 여전히 `lost update` 문제가 발생한다.
