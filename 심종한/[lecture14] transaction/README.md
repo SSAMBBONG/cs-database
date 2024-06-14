@@ -47,8 +47,7 @@ SET AUTOCOMMIT = 0; # autocommit off
 
 DELETE FROM account WHERE balance <= 100000; # 실행 후 커밋되지 않는다.
 
-COMMIT or ROLLBACK # 수동으로 커밋 또는 롤백 해햐 한다.
-```
+COMMIT or ROLLBACK # 수동으로 커밋 또는 롤백 해야 한다.
 
 > [!IMPORTANT]
 >
