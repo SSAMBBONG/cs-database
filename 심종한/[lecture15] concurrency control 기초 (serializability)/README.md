@@ -93,7 +93,7 @@ sched.2: w2(H) -> w1(H)
 
 모든 `conflicting operations` 의 순서가 동일하므로 두 schedule은 **equivalent**하다.
 
-그리고 이때, `scedule2` 는 **serial schedule**이다.
+그리고 이때, `schedule2` 는 **serial schedule**이다.
 
 `serial schedule` 과 **conflict equivalent** 할 때 **conflict serialzable**이라고 한다.
 
