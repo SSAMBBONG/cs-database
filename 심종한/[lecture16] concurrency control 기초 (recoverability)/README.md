@@ -6,7 +6,7 @@
 
 schedule 내에서 commit된 트랜잭션이 롤백된 트랜잭션이 write했었던 데이터를 읽은 경우를 `unrecoverable schedule` 라고 한다.
 
-롤백을 하더라고 `tx1` 을 복구할 수 없다. 이미 커밋된 트랜잭션은 `durability` 속성 때문에 롤백 불가능하다.
+롤백을 하더라도 `tx1` 을 복구할 수 없다. 이미 커밋된 트랜잭션은 `durability` 속성 때문에 롤백 불가능하다.
 
 이런 schedule은 DBMS가 허용하면 안된다.
 
