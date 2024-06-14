@@ -42,3 +42,7 @@ MySQL에서 locking read를 사용하면 repeatable read 격리 수준이더라�
 ![alt text](<postgresql rollback1.png>)
 
 이번엔 select for share 로 읽기 잠금을 획득하더라도 동일한 이유로 롤백된다.
+
+### 정리
+
+DBMS의 종류에 따라 동작 방식이 다르므로 상황에 알맞은 방법을 적용해야 한다.
