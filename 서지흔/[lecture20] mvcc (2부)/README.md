@@ -1,4 +1,4 @@
-## [lecture19] mvcc (1부)
+## [lecture20] mvcc (2부)
 
 MVCC(multiversion concurrency control)
 ex)
