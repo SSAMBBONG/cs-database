@@ -15,9 +15,8 @@
 
 - 정규화 되기 위해 준수해야 하는 몇 가지 규칙들이 있는데 이 각각의 규칙을 NF라고 부름
 
-## DB 정규화 과정
-
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/df3be3e2-8b43-4d4f-8a98-a4b36f42e3d8/c57f674e-a5db-4d63-b429-4d0f0d929ba8/Untitled.png)
+## DB 정규화 과정<br>
+<img src="./img/lecture23-1.png">
 
 - 1NF ~ BCNF
     - FD와 Key만으로 정의되는 NF

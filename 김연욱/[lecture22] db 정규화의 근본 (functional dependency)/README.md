@@ -8,9 +8,8 @@
 
 - 한 테이블에 있는 두 개의 attribute(s) 집합(set) 사이의 제약(a constraint)
 - ‘tuple들의 X 값이 같다면 Y 값도 같다’는 의존 관계가 존재한다면 이를 FD라고 함
-- X → Y (기호 표시)
-    
-    ![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/df3be3e2-8b43-4d4f-8a98-a4b36f42e3d8/c65bdfbe-e246-4106-9c28-28d3004f60b1/Untitled.png)
+- X → Y (기호 표시)<br>
+<img src="./img/lecture22-1.png">
     
 - 테이블의 행만 보고 FD를 판단 X
 - 테이블의 스키마를 보고 의미적으로 FD를 파악해야 함
