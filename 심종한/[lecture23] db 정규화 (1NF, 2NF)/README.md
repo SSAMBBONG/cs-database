@@ -48,6 +48,8 @@ non-prime attribute: class, ratio, empl_id, empl_name
 
 **모든 non-prime attribute는 모든 key에 fully functionally dependent 해야 한다.**
 
+**다르게 말하면 key가 composite key가 아니라면 2NF는 자동적으로 만족한다고도 말할 수 있다. (일반적으로)**
+
 이제 `card_id` 를 분리해야 한다.
 
 ![alt text](2NF.png)
