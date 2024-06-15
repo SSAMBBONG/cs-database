@@ -4,7 +4,7 @@
   - 단일한 논리적인 작업 단위
   - 논리적인 이유로 여러 SQL문들을 단일 작업으로 묶어서 나눠질 수 없게 만든 것이 transaction
 - START TRANSACTION; 실행과 동시에 autocommit off됨(commit/rollback해줘야만함)
-- @Transactional annotation (알아서 ACID 지켜준다)
+- @Transactional annotation (알아서 트랜잭션을 관리해준다)
 - Atomicity : 원자성 (논리적으로 쪼개질 수 없는 작업단위)
 - Consistency
   - DB상태를 consistent 상태에서 또 다른 consistent 상태로 바꿔야함
