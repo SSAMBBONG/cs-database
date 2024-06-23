@@ -31,3 +31,9 @@ B tree를 사용하면 데이터를 찾을 떄 탐색 범위를 빠르게 좁힐
   <img src="./avl.png" alt="Image 1" width="300"/>
   <img src="./btree.png" alt="Image 2" width="300"/>
 </p>
+
+### B tree 계열을 DB 인덱스로 사용하는 이유
+
+- DB는 기본적으로 secondary storage에 저장된다.
+- B tree index는 self-balancing BST에 비해 secondary storage 접근을 적게한다.
+- B tree 노드는 block 단위의 저장 공간을 알차게 사용할 수 있다.
