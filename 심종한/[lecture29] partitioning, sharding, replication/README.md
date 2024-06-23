@@ -1,80 +1,73 @@
 # lecture29 - partitioning, sharding, replication
 
-## database & DBMS & DB System
+## partitioning
 
-### database
+### vertical partitioning
 
-- 전자적으로 저장되고 사용되는 관련있는 데이터들의 조직화된 집합이다.
+**칼럼을 기준으로 테이블을 나누는 방식**
 
-### DBMS
+예를 들어 게시판 글 목록을 조회하는 상황을 가정하자.
 
-- 사용자에게 DB를 정의하고 만들고 관리하는 기능을 제공하는 소프트웨어 시스템
-- DB를 정의하다 보면 부가적인 정보가 저장된다.
+우린 게시글 본문 내용이 아닌 다른 정보만 쿼리를 날려 조회한다.
 
-#### metadata
+![alt text](<게시글 조회.png>)
 
-- DB를 정의하거나 기술하는 data-catalog 라고도 부름
-- 데이터 유형, 구조, 제약 조건, 보안, 저장, 인덱스, 사용자 그룹 등등
-- metadata 또한 DBMS를 통해 저장/관리된다.
+그런데 실제로는 한 행을 모두 HDD 또는 SSD에서 데이터를 읽고 메모리에 올린다.
 
-### DB System
+만약 content 데이터의 크기가 크다면 불필요한 I/O 작업이 발생할 수 있다.
 
-- `database + DBMS + 연관된 applications` 를 줄여서 database라고도 부름
+이 문제를 해결하고자 vertical partitioning을 적용하여 아래 사진과 같은 구조로 테이블을 변경할 수 있다.
 
-### data model
+![alt text](<vertical partitioning.png>)
 
-- DB의 구조를 기술하는데 사용될 수 있는 개념들이 모인 집합
-  - DB 구조를 추상화해서 표현할 수 있는 수단을 제공한다.
-- data model은 여러 종류가 있으며 추상화 수준과 DB 구조화 방식이 조금씩 다르다.
+### horizontal partitioning
 
-#### 분류
+**행을 기준으로 테이블을 나누는 방식**
 
-1. conceptual data models
+사용자 테이블, 채널 정보 테이블, 구독 정보를 저장하는 테이블이 있다고 가정하자.
 
-- 일반 사용자들이 쉽게 이해할 수 있는 개념들로 이뤄진 모델
-- 추상화 수준이 가장 높음
-- 비즈니스 요구사항을 추상화하여 기술할 때 사용
+사용자 수가 10,000명, 채널 수가 1,000개 있다고 하자. 구독 정보는 최대 100,00,000개가 생길 수 있다.
 
-ex) ER 다이어그램..
+점점 구독 정보가 쌓이면서 테이블의 크기가 커지면 인덱스의 크기도 커진다. 또한 테이블에 읽기/쓰기 작업이 있을 때마다 인덱스 처리 시간도 늘어나게 된다.
 
-2. logical data models
+이런 문제를 horizontal partitioning 을 사용하여 해결할 수 있다.
 
-- 이해하기 어렵지 않으면서도 자세히 DB를 구조화 할 수 있는 개념을 제공
-- 데이터가 컴퓨터에 저장될 때의 구조와 크게 다르지 않게 DB 구조화를 가능하게 함
-- 특정 DBMS나 storage에 종속되지 않는 수준에서 DB를 구조화할 수 있는 모델
+#### hash-based
 
-ex) 관계형 모델..
+사용자 id를 해시 함수에 대입하여 0과 1의 결과만 나오도록 한다.
 
-3. physical data models
+그 후 0과 1로 테이블을 구분하여 구독 정보를 저장한다.
 
-- 컴퓨터에 데이터가 어떻게 파일 형태로 저장되는지를 기술할 수 있는 수단 제공
-- data format, data orderings, access path 등등
-  - access path: 데이터 검색을 빠르게 하기 위한 구조체 (인덱스..)
+![alt text](<hash function.png>)
 
-## schema & state
+이때 기준이 되는 user_id를 `partition key` 라고 부른다.
 
-### database schema
+그런데 이 상황에서 id가 1인 channel 정보를 조회하고 싶은 경우에 두 테이블을 모두 조회해야 한다.
 
-- data model을 바탕으로 DB의 구조를 기술한 것
-- DB를 설계할 때 정해지며 한번 정해진 후로 자주 변경되지 않는다.
+따라서 아래 사항을 주의하며 사용해야 한다.
 
-### database state
+> [!IMPORTANT]
+>
+> 1. 가장 많이 사용될 패턴에 따라 partition key를 정하는 것이 중요하다.
+> 2. 데이터가 균등하게 분배될 수 있도록 hash function을 잘 정의하는 것도 중요하다.
+> 3. hash-based horizontal partitioning은 한 번 partition이 나눠져서 사용되면 이후에 partition을 추가하기 까다롭다.
+>
+> 이 외에도 range-based 방식 등 다양한 방법이 있다.
 
-- database에 있는 실제 데이터는 자주 바뀔 수 있다.
-- 특정 시점에 DB에 있는 데이터를 database state 혹은 snapshot이라고 한다.
+## shardinng
 
-### three-schema level
+horizontal partitioning 처럼 동작한다. 그리고 각 partition이 독립된 DB 서버에 저장된다.
 
-1. 외부 스키마
+띠라서 DB 부하를 분산시킬 수 있다.
 
-- 사용자나 특정 응용 프로그램이 데이터를 보는 방식을 정의한다.
+![alt text](sharding.png)
+'
+이때 분류의 기준이 되는 키를 `shard-key` 라고 부른다.
 
-2. 개념 스키마
+## replication
 
-- 전체 DB의 논리적 구조를 정의한다.
-- 모든 엔티티, 속성, 관계 및 제약 조건을 포함하며 DBA에 의해 정의된다.
+master, slave 구조로 DB를 나눈다.
 
-3. 내부 스키마
+읽기/쓰기 작업을 하다가 master DB에 장애 상황이 발생하는 경우 slave DB를 사용하여 서비스를 계속해서 제공할 수 있게 된다.
 
-- 물리적 저장 구조를 정의한다.
-- 디스크에 어떻게 저장되고 인덱싱되는지, 압축된는지 등 물리적 저장소의 세부 사항을 포함한다.
+또한 읽기 작업은 slave DB로 돌려 master DB의 트래픽을 분산하는 용도로 사용할 수도 있다.
