@@ -12,7 +12,7 @@
 - Isolation
   - 동시에 실행될때도 혼자 실행되는것처럼 동작
   - DBMS는 여러종류의 isolation level 제공(어떤 level transaction 동작시킬지 설정해야함)(낮을수록 유연함)
-- Duability
+- Durability
   - commit된 transaction은 DB에 영구저장
   - DBsystem에 문제(power fail or DB crash) 생겨도 commit된 트랜잭션은 DB에 남아있음
   - 영구저장 → 비휘발성 메모리(HDD, SSD)에 저장함을 의미
