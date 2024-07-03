@@ -9,7 +9,7 @@ MVCC(multiversion concurrency control)
 
     | MVCC  | read  | write  |
     | :---- | ----- | ------ |
-    | read  | O     | **O ** |
+    | read  | O     | **O** |
     | write | **O** | X      |
 
     | lock  | read  | write |
