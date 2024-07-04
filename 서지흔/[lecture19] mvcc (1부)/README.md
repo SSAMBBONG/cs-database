@@ -18,7 +18,7 @@ MVCC(multiversion concurrency control)
     | write | **X** | X     |
 
 - 데이터를 읽을 때 특정 시점 기준으로 가장 최근에 commit된 데이터를 읽음 (cf. MySQL에서의 Consistent read)
-- 데이터 변화(write) 이력을 관리 (histroy 저장 공간 필요)
+- 데이터 변화(write) 이력을 관리 (history 저장 공간 필요)
 - read와 write는 서로를 block하지 않음 (lock과 달리 동시 처리 가능)
   ex)
   tx1 : x가 y에 40 이체
