@@ -16,4 +16,4 @@
   - commit된 transaction은 DB에 영구저장
   - DBsystem에 문제(power fail or DB crash) 생겨도 commit된 트랜잭션은 DB에 남아있음
   - 영구저장 → 비휘발성 메모리(HDD, SSD)에 저장함을 의미
-  - transaction의 duability는 DBMS가 보장한다
+  - transaction의 durability는 DBMS가 보장한다
