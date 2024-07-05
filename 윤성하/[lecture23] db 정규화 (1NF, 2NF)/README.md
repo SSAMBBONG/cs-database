@@ -29,7 +29,7 @@
 
 ***
 super key: table에서 tuple들을 unique하게 식별할 수 있는 attribute set
-(cantidate) key: 어느 한 attribute라도 제거하면 unique하게 튜플들을 식별할 수 없는 super key
+(candidate) key: 어느 한 attribute라도 제거하면 unique하게 튜플들을 식별할 수 없는 super key
 primary key: table에서 튜플들을 unique하게 식별하기 위해 선택한 키
 prime attribute: 임의의 key에 속하는 attribute
 non-prime attribute: 어떠한 key에도 속하지 않는 attribute
