@@ -6,7 +6,7 @@
 
 - normal forms(NF) : 정규화 되기 위해 준수해야하는 몇 가지 rule
   - 보통 실무에서는 3NF, BCNF까지 정규화
-- **1NF** : attribute의 value는 반드시 나눠질 수 없는 단일값이어야 함
+- **1NF** : attribute의 value는 반드시 나눠질 수 없는 단일값이어야 함  
   `1NF 위반`
 
   | StudentID | Name  | Subjects      |
