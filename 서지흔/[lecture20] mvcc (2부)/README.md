@@ -21,6 +21,7 @@ tx2 : x에 30 입금
     WHERE id='x'
     FOR UPDATE -- locking read 걸어주는 부분
     ```
+  - FOR UPDATE, FOR SHARE모두 `locking read`에 해당한다는 점 참고!
   - 즉 mysql에서는 `lost update` 방지를 위해 `repeatable read`, `locking read` 모두 신경써줘야함
 
 - 모든 tx가 serializable하게 동작한다면? (제일 strict한 isolation level)
