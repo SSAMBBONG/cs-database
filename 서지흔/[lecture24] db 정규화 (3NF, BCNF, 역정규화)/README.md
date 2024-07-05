@@ -1,6 +1,6 @@
 ## [lecture24] db 정규화 (3NF, BCNF, 역정규화)
 
-- **3NF** : 모든 non-prime-attribute는 어떤 key에도 transitively dependent 하면 안됨
+- **3NF** : 모든 non-prime-attribute는 어떤 key에도 transitively dependent 하면 안됨  
   `3NF 위반`
 
 | StudentID | CourseID | Instructor | InstructorEmail |
