@@ -24,7 +24,7 @@
 | 2         | Bob   | History |
 
 - **2NF** : 모든 non-prime attribute는 모든 key에 fully funcionally dependent 해야함
-  = 모든 non-prime attribute는 어떤 key에도 partially dependent 하면 안됨
+  = 모든 non-prime attribute는 어떤 key에도 partially dependent 하면 안됨  
   `2NF 위반`
 
   | StudentID | CourseID | Instructor | CourseName |
