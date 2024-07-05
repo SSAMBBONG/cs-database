@@ -8,7 +8,7 @@
 
 ## MVCC
 
-- MultiVersino Concurrency Control
+- MultiVersion Concurrency Control
 - Lock
     
     
