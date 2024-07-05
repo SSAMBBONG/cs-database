@@ -9,7 +9,7 @@ tx2 : x에 30 입금
 - (X) MVCC, tx1 `repeatable read`,tx2 `repeatable read`일때(MySQL기준)
   - 실행순서 : tx2->tx1
   - mysql에서는 `repeatable read`만으로는 올바른 결과 나오지 않음
-- (O) MVCC, tx1 ``repeatable read`,tx2 `repeatable read```일때(MySQL기준)
+- (O) MVCC, tx1 `repeatable read`,tx2 `repeatable read`일때(MySQL기준)
 
   - 실행순서 : tx2->tx1
   - 각각 tx read query에`Locking read` 걸어주기
