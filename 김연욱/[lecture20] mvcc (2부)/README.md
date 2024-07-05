@@ -47,7 +47,7 @@
     - tx의 모든 평범한 select문은 암묵적으로 select … for share 처럼 동작
 - postgreSQL serializable level
     - SSI(serializable snapshot isolation)로 구현
-    - first-commit-winner
+    - first-committer-wins
 
 ## 마무리
 
