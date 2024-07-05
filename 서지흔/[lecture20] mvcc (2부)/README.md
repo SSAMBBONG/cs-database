@@ -6,7 +6,7 @@ tx1 : x가 y에 40 이체
 tx2 : x에 30 입금
 초기 x=50, y=10
 
-- (X) MVCC, tx1 ``repeatable read`,tx2 `repeatable read```일때(MySQL기준)
+- (X) MVCC, tx1 `repeatable read`,tx2 `repeatable read`일때(MySQL기준)
   - 실행순서 : tx2->tx1
   - mysql에서는 `repeatable read`만으로는 올바른 결과 나오지 않음
 - (O) MVCC, tx1 ``repeatable read`,tx2 `repeatable read```일때(MySQL기준)
