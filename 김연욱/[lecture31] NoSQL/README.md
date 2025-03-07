@@ -21,7 +21,7 @@
 
 ## NoSQL 특징
 
-- 유연한 스키마 / 스키마 관리를 application 레벨함 (개발자가 부담)
+- 유연한 스키마 / 스키마 관리를 application 레벨에서 함 (개발자가 부담)
 - 데이터 중복 허용 (join 회피)
 - scale-out이 쉽고 편함 (서버 여러 대로 하나의 클러스터를 구성하여 사용)
 - ACID의 일부를 포기하고 high-throughput, low-latency 추구 (금융 시스템처럼 consistency가 중요한 환경에서는 사용하기가 조심스러움)
