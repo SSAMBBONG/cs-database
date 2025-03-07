@@ -9,6 +9,7 @@
 - 변경된 값에 대해서 덮어 쓰게 되는 경우(lost update)가 발생할 수 있음
 - MySQL에서의 for update 문을 추가해서 해결!
 - MySQL에서 locking read는 가장 최근에 commit된 데이터를 읽음!!
+- Locking Read : 트랜잭션이 데이터를 읽을 때 해당 데이터에 대한 잠금을 거는 방식
     
     ```sql
     select balance 
